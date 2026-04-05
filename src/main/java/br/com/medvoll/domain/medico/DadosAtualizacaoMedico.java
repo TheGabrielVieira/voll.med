@@ -1,6 +1,6 @@
-package br.com.medvoll.medico;
+package br.com.medvoll.domain.medico;
 
-import br.com.medvoll.endereco.DadosEndereco;
+import br.com.medvoll.domain.endereco.DadosEndereco;
 import jakarta.validation.constraints.NotNull;
 
 public record DadosAtualizacaoMedico(

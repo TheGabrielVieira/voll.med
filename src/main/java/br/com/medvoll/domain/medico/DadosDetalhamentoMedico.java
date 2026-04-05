@@ -1,6 +1,6 @@
-package br.com.medvoll.medico;
+package br.com.medvoll.domain.medico;
 
-import br.com.medvoll.endereco.Endereco;
+import br.com.medvoll.domain.endereco.Endereco;
 
 public record DadosDetalhamentoMedico(
         Long id,

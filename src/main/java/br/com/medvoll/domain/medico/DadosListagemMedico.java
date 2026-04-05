@@ -1,6 +1,4 @@
-package br.com.medvoll.medico;
-
-import br.com.medvoll.endereco.Endereco;
+package br.com.medvoll.domain.medico;
 
 public record DadosListagemMedico(Long id, String nome, String email, String crm, Especialidade especialidade) {
 

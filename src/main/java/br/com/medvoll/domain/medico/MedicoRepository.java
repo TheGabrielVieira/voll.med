@@ -1,4 +1,4 @@
-package br.com.medvoll.medico;
+package br.com.medvoll.domain.medico;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

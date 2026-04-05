@@ -1,4 +1,4 @@
-package br.com.medvoll.medico;
+package br.com.medvoll.domain.medico;
 
 public enum Especialidade {
 
