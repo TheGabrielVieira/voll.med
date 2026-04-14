@@ -1,6 +1,7 @@
 package br.com.medvoll.controller;
 
 import br.com.medvoll.domain.paciente.*;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,6 +14,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/pacientes")
+@SecurityRequirement(name = "bearer-key")
 public class PacienteController {
 
     @Autowired
@@ -20,6 +22,7 @@ public class PacienteController {
 
     @PostMapping
     @Transactional
+
     public ResponseEntity cadastrarPaciente(@RequestBody @Valid DadosCadastroPaciente dados, UriComponentsBuilder uriBuilder) {
         var paciente = new Paciente(dados);
         repository.save(paciente);

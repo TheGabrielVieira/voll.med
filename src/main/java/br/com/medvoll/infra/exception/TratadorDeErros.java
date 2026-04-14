@@ -1,5 +1,6 @@
 package br.com.medvoll.infra.exception;
 
+import br.com.medvoll.domain.ValidacaoException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -14,10 +15,16 @@ public class TratadorDeErros {
     public ResponseEntity tratadorDeErros404() {
         return ResponseEntity.notFound().build();
     }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity tratadorDeErros400(MethodArgumentNotValidException ex) {
         var erros = ex.getFieldErrors();
         return ResponseEntity.badRequest().body(erros.stream().map(DadosErroValidacao::new).toList());
+    }
+
+    @ExceptionHandler(ValidacaoException.class)
+    public ResponseEntity tratadorDeErroRegraDeNegocio(ValidacaoException ex) {
+        return ResponseEntity.badRequest().body(ex.getMessage());
     }
 
     private record DadosErroValidacao(String campo, String mensagem) {

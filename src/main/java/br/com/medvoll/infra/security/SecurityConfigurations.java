@@ -30,6 +30,7 @@ public class SecurityConfigurations {
                 )
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST,"/login").permitAll() // libera login
+                        .requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll()
                         .anyRequest().authenticated()          // resto precisa de auth
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
