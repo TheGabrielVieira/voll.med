@@ -343,6 +343,67 @@ Você pode importar a collection:
 
 👉 [Download da Collection](docs/API Voll.med.postman_collection.json)
 
+voll.med/
+├── docs/
+│    └── vollmed_collection.json
+├── README.md
+
+## 📬 Testando a API com Postman
+
+Para facilitar os testes da API, foi disponibilizada uma collection do Postman com todos os endpoints.
+
+### 📥 Importar a collection
+
+1. Baixe o arquivo:
+
+👉 [Download da Collection](./docs/vollmed_collection.json)
+
+2. Abra o Postman
+3. Clique em **Import**
+4. Selecione o arquivo baixado
+
+---
+
+### 🔐 Autenticação automática
+
+Após realizar o login, o token JWT será salvo automaticamente para uso nas próximas requisições.
+
+Caso necessário, configure manualmente:
+
+```
+Authorization: Bearer {{token}}
+```
+
+---
+
+### ⚙️ Variáveis utilizadas
+
+A collection utiliza variáveis para facilitar o uso:
+
+* `{{base_url}}` → URL da API (ex: http://localhost:8080)
+* `{{token}}` → Token JWT gerado no login
+
+---
+
+### 🚀 Fluxo recomendado
+
+1. Execute **Login**
+2. O token será salvo automaticamente
+3. Execute os demais endpoints normalmente
+
+---
+
+### 📁 Estrutura da collection
+
+* Auth
+* Médicos
+* Pacientes
+* Consultas
+
+---
+
+Isso permite testar toda a API sem necessidade de configuração manual.
+
 ## 🤝 Contribuição
 
 Contribuições são bem-vindas!
