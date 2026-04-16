@@ -1,0 +1,197 @@
+{
+  "info": {
+    "name": "Voll.med API (Completa)",
+    "_postman_id": "vollmed-collection-completa",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8080" },
+    { "key": "token", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"login\": \"ana.souza@voll.med\",\n  \"senha\": \"123456\"\n}"
+            },
+            "url": "{{base_url}}/login"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Médicos",
+      "item": [
+        {
+          "name": "Cadastrar Médico",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Bruna Silva\",\n  \"email\": \"bruna@voll.med\",\n  \"crm\": \"123456\",\n  \"telefone\": \"81999999999\",\n  \"especialidade\": \"CARDIOLOGIA\",\n  \"endereco\": {\n    \"logradouro\": \"Rua A\",\n    \"bairro\": \"Centro\",\n    \"cep\": \"12345678\",\n    \"cidade\": \"Recife\",\n    \"uf\": \"PE\"\n  }\n}"
+            },
+            "url": "{{base_url}}/medicos"
+          }
+        },
+        {
+          "name": "Listar Médicos",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": "{{base_url}}/medicos"
+          }
+        },
+        {
+          "name": "Detalhar Médico",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": "{{base_url}}/medicos/1"
+          }
+        },
+        {
+          "name": "Atualizar Médico",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 1,\n  \"telefone\": \"81988888888\"\n}"
+            },
+            "url": "{{base_url}}/medicos"
+          }
+        },
+        {
+          "name": "Excluir Médico",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": "{{base_url}}/medicos/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pacientes",
+      "item": [
+        {
+          "name": "Cadastrar Paciente",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"João da Silva\",\n  \"email\": \"joao@email.com\",\n  \"telefone\": \"81999999999\",\n  \"cpf\": \"12345678900\",\n  \"endereco\": {\n    \"logradouro\": \"Rua B\",\n    \"bairro\": \"Centro\",\n    \"cep\": \"12345678\",\n    \"cidade\": \"Recife\",\n    \"uf\": \"PE\",\n    \"numero\": \"100\",\n    \"complemento\": \"Apto 101\"\n  }\n}"
+            },
+            "url": "{{base_url}}/pacientes"
+          }
+        },
+        {
+          "name": "Listar Pacientes",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": "{{base_url}}/pacientes"
+          }
+        },
+        {
+          "name": "Detalhar Paciente",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": "{{base_url}}/pacientes/1"
+          }
+        },
+        {
+          "name": "Atualizar Paciente",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 1,\n  \"telefone\": \"81988888888\"\n}"
+            },
+            "url": "{{base_url}}/pacientes"
+          }
+        },
+        {
+          "name": "Excluir Paciente",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": "{{base_url}}/pacientes/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Consultas",
+      "item": [
+        {
+          "name": "Agendar Consulta",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idPaciente\": 1,\n  \"idMedico\": 1,\n  \"data\": \"2026-05-10T10:00:00\"\n}"
+            },
+            "url": "{{base_url}}/consultas"
+          }
+        },
+        {
+          "name": "Cancelar Consulta",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idConsulta\": 1,\n  \"motivo\": \"PACIENTE_DESISTIU\"\n}"
+            },
+            "url": "{{base_url}}/consultas"
+          }
+        }
+      ]
+    }
+  ]
+}
