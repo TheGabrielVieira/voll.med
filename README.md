@@ -341,7 +341,7 @@ Content-Type: application/json
 
 Você pode importar a collection:
 
-👉 [Download da Collection](./docs/API Voll.med.postman_collection.json)
+👉 [Download da Collection](docs/API Voll.med.postman_collection.json)
 
 ## 🤝 Contribuição
 
