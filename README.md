@@ -1,12 +1,16 @@
 # 🏥 Voll.med API
 
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+
 API REST desenvolvida para gerenciamento de uma clínica médica, permitindo o controle de médicos, pacientes e agendamento de consultas.
 
 ---
 
 ## 🚀 Tecnologias utilizadas
 
-* Java 17+
+* Java 21+
 * Spring Boot
 * Spring Security
 * JWT (JSON Web Token)
@@ -122,7 +126,7 @@ As migrations são executadas automaticamente ao iniciar a aplicação.
 
 ### 📌 Pré-requisitos
 
-* Java 17+
+* Java 21+
 * Maven
 * MySQL instalado
 
@@ -133,8 +137,8 @@ As migrations são executadas automaticamente ao iniciar a aplicação.
 #### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/GabrielMVieira/api-voll.med.git
-cd api-voll.med
+git clone https://github.com/TheGabrielVieira/voll.med.git
+cd voll.med
 ```
 
 ---
@@ -158,10 +162,10 @@ spring.datasource.url=jdbc:mysql://localhost/vollmed_db
 spring.datasource.username=root
 spring.datasource.password=sua_senha
 
-spring.jpa.hibernate.ddl-auto=validate
 spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
 
-api.security.token.secret=12345678
+api.security.token.secret=${JWT_SECRET}
 ```
 
 ---
@@ -339,16 +343,7 @@ Content-Type: application/json
 ```
 ## 📬 Postman
 
-Você pode importar a collection:
-
-👉 [Download da Collection](docs/API Voll.med.postman_collection.json)
-
-voll.med/
-├── docs/
-│    └── vollmed_collection.json
-├── README.md
-
-## 📬 Testando a API com Postman
+## Testando a API com Postman
 
 Para facilitar os testes da API, foi disponibilizada uma collection do Postman com todos os endpoints.
 
